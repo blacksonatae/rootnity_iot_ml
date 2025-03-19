@@ -14,7 +14,12 @@ void WiFiManager::startAP() {
 void WiFiManager::connectToWiFi(const String &ssid, const String &password) {
     ledController.blinkFast(5);
     WiFi.mode(WIFI_AP_STA);
-    WiFi.begin(ssid.c_str(), password.c_str());
+
+    if (password.isEmpty()) {
+        WiFi.begin(ssid.c_str());
+    } else {
+        WiFi.begin(ssid.c_str(), password.c_str());
+    }
 
     int attempts = 0;
 

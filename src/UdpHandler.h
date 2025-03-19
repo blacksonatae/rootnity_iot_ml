@@ -7,6 +7,7 @@
 
 #include "Arduino.h"
 #include "WiFiUdp.h"
+#include "WiFi.h"
 #include "ArduinoJson.h"
 
 class UdpHandler {
@@ -17,6 +18,7 @@ public:
     String receiveWiFiCredentials();
 
 private:
+    WiFiUDP udp;
     int udpSendPort;
     int udpReceivePort;
     char incomingPacket[255];
