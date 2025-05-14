@@ -1,23 +1,25 @@
 //
-// Created by kevin on 19/03/2025.
+// Created by kevin on 12/05/2025.
 //
 
-#ifndef ROOTNITY_IOT_ML_LEDCONTROLLER_H
-#define ROOTNITY_IOT_ML_LEDCONTROLLER_H
+#ifndef LEDCONTROLLER_H
+#define LEDCONTROLLER_H
 
-#include "Arduino.h"
+
 
 class LedController {
-public:
-    LedController(int pin);
-    void turnOn();
-    void turnOff();
-    void blinkFast(int times);
-    void blinkSlow(int times);
-
 private:
+    //.. Variabel
+    enum {OFF, ON, BLINKING} state;
+    unsigned long previousMillis;
+    unsigned int onTime, offTime;
+    int remainingBlinks;
     int ledPin;
+
+public:
+
 };
 
 
-#endif //ROOTNITY_IOT_ML_LEDCONTROLLER_H
+
+#endif //LEDCONTROLLER_H
